@@ -5,7 +5,7 @@
     <title>Caesar Cipher</title>
 </head>
 <body>
-    <form id="caesarForm" onsubmit="main();">
+    <form id="caesarForm">
         <label for="plainText">Plain Text:</label>
         <input id="plainText" name="plainText" required>
         <br>
@@ -19,7 +19,8 @@
     <div id="output"></div>
 
     <script>
-    function main() {
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+        event.preventDefault();
         //clean plainText
         let plainText = document.getElementById("plainText").value;
         let count = 0;
@@ -99,7 +100,7 @@
         //show answer
         console.info(ans);
         document.getElementById("output").innerHTML = "<p>" + ans + "</p>";
-    }
+    });
     </script>
 </body>
 </html>
