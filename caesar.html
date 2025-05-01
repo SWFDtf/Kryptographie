@@ -5,14 +5,14 @@
     <title>Caesar Cipher</title>
 </head>
 <body>
-    <form action="#" id="caesarForm" onsubmit="main(); return false;">
+    <form id="caesarForm">
         <label for="plainText">Plain Text:</label>
         <input id="plainText" name="plainText" required>
         <br>
         <label for="shift">Shift:</label>
         <input id="shift" name="shift" type="number" required>
         <br>
-        <button type="submit">Run</button>
+        <button onclick="main();">Run</button>
     </form>
     <hr>
     <h2>Output:</h2>
