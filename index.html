@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caesar Cipher</title>
+</head>
+<body>
+    <form id="caesarForm" onsubmit="main(); return false;">
+        <label for="plainText">Plain Text:</label>
+        <input id="plainText" name="plainText" required>
+        <br>
+        <label for="shift">Shift:</label>
+        <input id="shift" name="shift" type="number" required>
+        <br>
+        <button type="submit">Run</button>
+    </form>
+    <hr>
+    <h2>Output:</h2>
+    <div id="output"></div>
+
+    <script>
+    function main() {
+        //clean plainText
+        let plainText = document.getElementById("plainText").value;
+        let count = 0;
+        let done = false;
+        let ans = "";
+        const ABC = "abcdefghijklmnopqrstuvwxyz";
+        let shift = document.getElementById("shift").value;
+        let i = 0;
+        let upperCase = false;
+        while (done == false) {
+            
+            //say on which count we're on
+            console.log(plainText[count]);
+
+            //check if the plainText is at the and
+            if (plainText[count] == null) {
+                console.log("done");
+                break;
+            }
+
+            //check if the letter is UpperCase
+            if (plainText[count] == plainText[count].toUpperCase()) 
+            {
+                upperCase = true;
+            } else 
+            {
+                upperCase = false;
+            }
+            
+            while (true) {
+                // if it is lower letter then the first if
+                if (ABC[i%26] == plainText[count] && upperCase == false) //i modulus 26 makes every number rotatable for e.g. if shift is -1 then its -1%26 which is 25 which stands for 'Z' and its usefull because -1 to 'A' is 'Z'
+                {
+                    // logging that it found what alphabet it is
+                    console.log("found: \"" + ABC[i%26] + "\" from Plaintext at " + count + ".");
+
+                    // logging what the cipher alphabet is
+                    console.log("encrypting with the key \'" + shift + "\' and cipher alphabet is now \'" + ABC[(i + shift)%26] + "\' at " + count + ".");
+
+                    //adding the cipher snippet to the whole cipher text with the shift
+                    ans = ans + ABC[(i+shift)%26];
+
+                    //adding one to the count
+                    count++;
+
+                    break;
+                } else if (ABC[i%26].toUpperCase() == plainText[count] && upperCase == true) // jusgt copied everything from above and changed it so its uppercase
+                {
+                    // logging that it found what alphabet it is
+                    console.log("found: \"" + ABC[i%26].toUpperCase() + "\" from Plaintext at " + count + ".");
+
+                    // logging what the cipher alphabet is
+                    console.log("encrypting with the key \'" + shift + "\' and cipher alphabet is now \'" + ABC[(i + shift)%26].toUpperCase() + "\' at " + count + ".");
+
+                    //adding the cipher snippet to the whole cipher text with the shift
+                    ans = ans + ABC[(i+shift)%26].toUpperCase();
+
+                    //adding one to the count
+                    count++;
+
+                    break;
+                } else if (plainText[count] == " ") 
+                {
+                    // JUST ADD THE SPACE AND THE COUNT 
+                    ans = ans + " ";
+                    count++;
+                    
+                    break;
+                } else 
+                {
+                    //to cycle through the alphabeth to find the correct letter.
+                    i++;
+                }
+            }
+        }
+
+        //show answer
+        console.info(ans);
+        document.getElementById("output").innerHTML = "<p>" + ans + "</p>";
+    }
+    </script>
+</body>
+</html>
