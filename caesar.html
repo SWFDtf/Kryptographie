@@ -5,35 +5,44 @@
     <title>Caesar Cipher</title>
 </head>
 <body>
+    <div id="form">
     <form id="caesarForm">
         <label for="plainText">Plain Text:</label>
         <input id="plainText" name="plainText" required>
         <br>
         <label for="shift">Shift:</label>
         <input id="shift" name="shift" type="number" required>
+        <br>
+        <button type="submit">Run</button>
     </form>
-    <br>
-    <br>
-    <br>
-    <button onclick="main();">Run</button>
-
     <hr>
     <h2>Output:</h2>
+    </div>
     <div id="output"></div>
 
     <script>
+
+    var form = document.getElementById("caesarForm");
+    function submitForm(event) {
+        event.preventDefault();
+        form.style.display = "none"; 
+        main();
+    }
+    form.addEventListener('submit', submitForm);
     function main() {
         //clean plainText
+        document.getElementById("output").innerHTML = "<p></p>";
         let plainText = document.getElementById("plainText").value;
         let count = 0;
         let done = false;
         let ans = "";
         const ABC = "abcdefghijklmnopqrstuvwxyz";
-        let shift = document.getElementById("shift").value;
+        let shift = Number(document.getElementById("shift").value);
         let i = 0;
         let upperCase = false;
+
         while (done == false) {
-            
+            i=0;
             //say on which count we're on
             console.log(plainText[count]);
 
@@ -52,7 +61,10 @@
                 upperCase = false;
             }
             
+            
+
             while (true) {
+                console.info(i);
                 // if it is lower letter then the first if
                 if (ABC[i%26] == plainText[count] && upperCase == false) //i modulus 26 makes every number rotatable for e.g. if shift is -1 then its -1%26 which is 25 which stands for 'Z' and its usefull because -1 to 'A' is 'Z'
                 {
@@ -60,10 +72,15 @@
                     console.log("found: \"" + ABC[i%26] + "\" from Plaintext at " + count + ".");
 
                     // logging what the cipher alphabet is
+                    
                     console.log("encrypting with the key \'" + shift + "\' and cipher alphabet is now \'" + ABC[(i + shift)%26] + "\' at " + count + ".");
-
+                    console.error(i+"+"+shift);
+                    console.error((i+shift)%26);
+                    console.error((i+shift));
+                    console.error(i);
                     //adding the cipher snippet to the whole cipher text with the shift
                     ans = ans + ABC[(i+shift)%26];
+                    console.log(ans);
 
                     //adding one to the count
                     count++;
@@ -76,10 +93,13 @@
 
                     // logging what the cipher alphabet is
                     console.log("encrypting with the key \'" + shift + "\' and cipher alphabet is now \'" + ABC[(i + shift)%26].toUpperCase() + "\' at " + count + ".");
-
+                    console.error(i+"+"+shift);
+                    console.error((i+shift));
+                    console.error((i+shift));
+                    console.log(i);
                     //adding the cipher snippet to the whole cipher text with the shift
-                    ans = ans + ABC[(i+shift)%26].toUpperCase();
-
+                    ans = ans + ABC[(i+shift)%26].toUpperCase()
+                    console.log(ans);
                     //adding one to the count
                     count++;
 
@@ -91,6 +111,20 @@
                     count++;
                     
                     break;
+                } else if (plainText[count] == ".") 
+                {
+                    // JUST ADD THE point AND THE COUNT 
+                    ans = ans + ".";
+                    count++;
+                    
+                    break;
+                } else if (plainText[count] == ",") 
+                {
+                    // JUST ADD THE komma AND THE COUNT 
+                    ans = ans + ",";
+                    count++;
+                    
+                    break;
                 } else 
                 {
                     //to cycle through the alphabeth to find the correct letter.
@@ -98,10 +132,9 @@
                 }
             }
         }
-
         //show answer
         console.info(ans);
-        document.getElementById("output").innerHTML = "<p>" + ans + "</p>";
+        document.getElementById("output").innerHTML = "<p>" + ans + "</p>" + "<br>" + "<button onclick=\"window.location.reload();\">Reload</button>";
     }
     </script>
 </body>
