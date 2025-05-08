@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigenère Decrypter</title>
+    <style>
+        #log-container { overflow: auto; height: 150px; display: none;}
+
+        .log-warn { color: orange }
+        .log-error { color: red }
+        .log-info { color: skyblue }
+        .log-log { color: silver }
+
+        .log-warn, .log-error { font-weight: bold; }
+    </style>
+    <script src="console-logger.js"></script>
+    <script>
+        function submitForm() {
+            try {
+                main(document.getElementById('key').value, document.getElementById('plainText').value)
+            } catch (error) {
+                console.error(error); alert('please try again')
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="form">
+    <h1>Vigenère Decrypter</h1>
+    <form>
+        <label for="plainText">Plain Text:</label>
+        <input id="plainText" name="plainText" required>
+        <br>
+        <label for="key">Key:</label>
+        <input id="key" name="key" required>
+        <br>
+    </form>
+    <button onclick="submitForm();">Run</button>
+    </div>
+    <hr>
+    <h1>Output</h1>
+    <div id="output"></div>
+
+    <button id="viewdebug" onclick="document.getElementById('log-container').style.display = 'block'; document.getElementById('unviewdebug').style.display = 'block'; document.getElementById('viewdebug').style.display = 'none';">view console</button>
+
+    <button id="unviewdebug" onclick="document.getElementById('log-container').style.display = 'none'; document.getElementById('unviewdebug').style.display = 'none'; document.getElementById('viewdebug').style.display = 'block';" style="display: none;">close console</button>
+
+    <div id="log-container">
+        <pre id="log"></pre>
+    </div>
+    <script src="vigenere-decrypter-main.js"></script>
+</body>
+</html>
