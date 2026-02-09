@@ -1,0 +1,677 @@
+<!DOCTYPE html><!-- Mit hilfe Von gemini generiert -->
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wahlzettel EF 2026/27 - Gymnasium Essen Nord-Ost</title>
+  
+    <style>
+        :root {
+            --primary: #003366; /* Angelehnt an Schulfarben/Seriosität */
+            --bg: #f4f4f4;
+            --paper: #ffffff;
+            --border: #ccc;
+            --danger: #d9534f;
+            --success: #5cb85c;
+            --warning: #f0ad4e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            background: var(--paper);
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary);
+        }
+
+        /* Header Bereich */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid #000;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .school-info h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #000;
+        }
+
+        .school-info h2 {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        .meta-info {
+            text-align: right;
+            font-size: 0.9rem;
+        }
+
+        /* Formular Kopf */
+        .student-data {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border: 1px solid var(--border);
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        /* Tabelle */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #e9ecef;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .col-field { width: 15%; background: #f8f9fa; font-weight: bold; font-size: 0.85rem; }
+        .col-subject { width: 45%; }
+        .col-code { width: 10%; text-align: center; }
+        .col-hours { width: 10%; text-align: center; }
+        .col-select { width: 20%; }
+
+        /* Eingabeelemente in Tabelle */
+        select.course-select {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #aaa;
+            border-radius: 3px;
+        }
+        
+        select.course-select.written {
+            background-color: #e8f0fe;
+            border-color: var(--primary);
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .mandatory {
+            color: var(--danger);
+            font-weight: bold;
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: #666;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* Footer / Stats */
+        .stats-panel {
+            background: #eee;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .validation-box {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .validation-box.error {
+            background-color: #f2dede;
+            border-color: #ebccd1;
+            color: #a94442;
+        }
+
+        .validation-box.ok {
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+            color: #3c763d;
+        }
+
+        ul.error-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .info-footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #555;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+        
+        .toggle-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="school-info">
+            <h1>Gymnasium Essen Nord-Ost</h1>
+            <h2>leben. lernen. gestalten.</h2> <p style="margin: 5px 0 0; font-size: 0.9rem;">Ganztagsschule</p> </div>
+        <div class="meta-info">
+            <strong>Kurswahl EF</strong><br>
+            Schuljahr 2026/2027<br> </div>
+    </header>
+
+    <div class="student-data">
+        <div class="form-group">
+            <label>Name, Vorname</label> <input type="text" id="studentName" placeholder="Mustermann, Max">
+        </div>
+        <div class="form-group">
+            <label>Klasse (aktuell)</label> <input type="text" id="studentClass" placeholder="z.B. 9a">
+        </div>
+        <div class="form-group">
+            <label>Französisch 6-10 belegt?</label> <select id="prevFrench" onchange="updateLogic()">
+                <option value="nein">Nein</option>
+                <option value="ja">Ja</option>
+            </select>
+        </div>
+    </div>
+
+    <p style="font-size: 0.9rem; margin-bottom: 15px;">
+        <strong>Hinweise:</strong> Pflichtfächer sind mit <span class="mandatory">*</span> markiert. Ein Kurs gilt als gewählt, wenn "Schriftlich" (S) oder "Mündlich" (M) ausgewählt wird. </p>
+
+    <form id="wahlbogen">
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-field">Aufgabenfeld</th>
+                    <th class="col-subject">Fach</th>
+                    <th class="col-code">Kürzel</th>
+                    <th class="col-hours">WStd.</th>
+                    <th class="col-select">Wahl (M/S)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="7" class="col-field">1<br>sprachlich-<br>literarisch-<br>künstlerisch</td>
+                    <td><span class="mandatory">*</span> Deutsch</td>
+                    <td class="col-code">D</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="D" data-hours="3" data-field="1" data-mandatory="true" onchange="updateLogic()">
+                            <option value="S">Schriftlich</option> </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="mandatory">*</span> Fortgeführte Fremdsprache (aus Sek I)</td>
+                    <td class="col-code">E5</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="E5" data-hours="3" data-field="1" data-type="FS" onchange="updateLogic()">
+                            <option value="S">Schriftlich</option>
+                            <option value="">Nicht gewählt</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Zweite Fremdsprache / Neueinsetzend<br>
+                        <span class="note">F6/L6 (3h) oder S1/R1 (4h)</span> </td>
+                    <td class="col-code">
+                        <select id="fs2_code" onchange="updateLogic()" style="width:100%; border:none; background:transparent;">
+                            <option value="F6">F6</option>
+                            <option value="L6">L6</option>
+                            <option value="S1">S1 (neu)</option>
+                            <option value="R1">R1 (neu)</option>
+                        </select>
+                    </td>
+                    <td class="col-code" id="fs2_hours">3</td>
+                    <td>
+                        <select class="course-select" id="FS2" data-field="1" data-type="FS" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="S">Schriftlich</option>
+                            <option value="M">Mündlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Dritte Fremdsprache (optional)
+                    </td>
+                    <td class="col-code">
+                        <select id="fs3_code" onchange="updateLogic()" style="width:100%; border:none; background:transparent;">
+                            <option value="L6">L6</option>
+                            <option value="S1">S1</option>
+                            <option value="R1">R1</option>
+                        </select>
+                    </td>
+                    <td class="col-code" id="fs3_hours">3</td>
+                    <td>
+                        <select class="course-select" id="FS3" data-field="1" data-type="FS" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="S">Schriftlich</option>
+                            <option value="M">Mündlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="mandatory">*</span> Kunst oder Musik</td>
+                    <td class="col-code">KU</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="KU" data-hours="3" data-field="1" data-type="KUMU" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option> <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Musik (alternativ zu KU)</td>
+                    <td class="col-code">MU</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="MU" data-hours="3" data-field="1" data-type="KUMU" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option>
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                   <td colspan="4" style="background:#eee; height:5px; padding:0;"></td>
+                </tr>
+
+                <tr>
+                    <td rowspan="5" class="col-field">2<br>gesellschafts-<br>wiss.<br><span class="note">(Ein Fach muss schriftlich belegt werden, wenn Schwerpunkt GW)</span></td> <td><span class="mandatory">*</span> Pädagogik</td>
+                    <td class="col-code">PA</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="PA" data-hours="3" data-field="2" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option>
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Geschichte</td>
+                    <td class="col-code">GE</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="GE" data-hours="3" data-field="2" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option>
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sozialwissenschaften</td>
+                    <td class="col-code">SW</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="SW" data-hours="3" data-field="2" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option>
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Erdkunde</td>
+                    <td class="col-code">EK</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="EK" data-hours="3" data-field="2" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option>
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Philosophie (als GW-Fach)</td>
+                    <td class="col-code">PL</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="PL_GW" data-hours="3" data-field="2" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option>
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="6" class="col-field">3<br>math.-<br>naturwiss.<br><span class="note">(Ein Fach muss schriftlich belegt werden, wenn Schwerpunkt NW)</span></td>
+                    <td><span class="mandatory">*</span> Mathematik</td>
+                    <td class="col-code">M</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="M" data-hours="3" data-field="3" data-mandatory="true" onchange="updateLogic()">
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="mandatory">*</span> Biologie</td>
+                    <td class="col-code">BI</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="BI" data-hours="3" data-field="3" data-type="NW" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option>
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Physik</td>
+                    <td class="col-code">PH</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="PH" data-hours="3" data-field="3" data-type="NW" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option>
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Chemie</td>
+                    <td class="col-code">CH</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="CH" data-hours="3" data-field="3" data-type="NW" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option>
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Informatik (nur als 2. NW)</td> <td class="col-code">IF</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="IF" data-hours="3" data-field="3" data-type="NW" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="M">Mündlich</option>
+                            <option value="S">Schriftlich</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                   <td colspan="4" style="background:#eee; height:5px; padding:0;"></td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3" class="col-field">Ohne Feld</td>
+                    <td><span class="mandatory">*</span> Religion / Philosophie</td> <td class="col-code">Rel/Pl</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="REL" data-hours="3" data-field="0" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="ER_M">Ev. Religion (m)</option>
+                            <option value="KR_M">Kath. Religion (m)</option>
+                            <option value="PL_M">Philosophie (Ersatz) (m)</option>
+                            <option value="ER_S">Ev. Religion (s)</option>
+                            <option value="KR_S">Kath. Religion (s)</option>
+                            <option value="PL_S">Philosophie (Ersatz) (s)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="mandatory">*</span> Sport</td> <td class="col-code">SP</td>
+                    <td class="col-code">3</td>
+                    <td>
+                        <select class="course-select" id="SP" data-hours="3" data-field="0" data-mandatory="true" onchange="updateLogic()">
+                            <option value="M">Teilnahme</option> </select>
+                    </td>
+                </tr>
+                <tr>
+                   <td colspan="4" style="background:#eee; height:5px; padding:0;"></td>
+                </tr>
+
+                <tr>
+                    <td class="col-field">Vertiefung<br><span class="note">(Max 1 Kurs)</span></td> <td>
+                        Vertiefungskurse (Deutsch, Englisch oder Mathe)
+                    </td>
+                    <td class="col-code">VX</td>
+                    <td class="col-code">2</td>
+                    <td>
+                        <select class="course-select" id="VX" data-hours="2" data-field="0" onchange="updateLogic()">
+                            <option value="">Nicht gewählt</option>
+                            <option value="D">Vertiefung Deutsch</option>
+                            <option value="E">Vertiefung Englisch</option>
+                            <option value="M">Vertiefung Mathe</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <div class="stats-panel">
+        <div class="stat-row">
+            <span>Summe Wochenstunden (min. 34 / max. 37):</span> <span id="sumHours">0</span>
+        </div>
+        <div class="stat-row">
+            <span>Anzahl Klausurfächer (min. 5 / max. 8):</span> <span id="sumWritten">0</span>
+        </div>
+
+        <div id="validationOutput" class="validation-box">
+            Bitte Fächer wählen...
+        </div>
+    </div>
+
+    <div class="info-footer">
+        <p><strong>Wichtige Termine:</strong></p>
+        <p>Die Kurswahlen finden vom <strong>16.03.2026 bis 20.03.2026</strong> statt (Raum 119). </p>
+        <p><em>Hinweis: Dies ist eine Simulation. Rechtsverbindlich ist nur der originale Wahlbogen der Schule sowie die Beratung durch das Oberstufenteam. Änderungen über Moodle/Homepage beachten.</em></p> </div>
+</div>
+
+<script>
+    // Initialisierung und Logik
+
+    function updateLogic() {
+        let totalHours = 0;
+        let totalWritten = 0;
+        let errors = [];
+        let warnings = [];
+
+        // 1. Daten sammeln und Stunden dynamisch anpassen
+        const form = document.getElementById('wahlbogen');
+        const selects = form.querySelectorAll('select.course-select');
+        
+        // Dynamische Stunden für FS2/FS3 anpassen
+        const fs2Code = document.getElementById('fs2_code').value;
+        const fs2Hours = (fs2Code === 'S1' || fs2Code === 'R1') ? 4 : 3;
+        document.getElementById('fs2_hours').innerText = fs2Hours;
+        
+        const fs3Code = document.getElementById('fs3_code').value;
+        const fs3Hours = (fs3Code === 'S1' || fs3Code === 'R1') ? 4 : 3;
+        document.getElementById('fs3_hours').innerText = fs3Hours;
+
+        // Reset Styles
+        selects.forEach(s => s.classList.remove('written'));
+
+        // Fach-Zähler
+        let countFS = 0;
+        let countNW = 0;
+        let countGW = 0;
+        let countKUMU = 0;
+        let hasRelOrPL = false;
+        
+        // Maps für Checks
+        let selectedWrittenSubjects = [];
+
+        selects.forEach(select => {
+            const val = select.value;
+            if (!val) return;
+
+            // Stunden berechnen
+            let hours = parseInt(select.getAttribute('data-hours'));
+            
+            // Sonderfall FS2 / FS3 Stunden überschreiben
+            if (select.id === 'FS2') hours = fs2Hours;
+            if (select.id === 'FS3') hours = fs3Hours;
+
+            // Typ prüfen
+            if (val === 'S' || val.endsWith('_S')) {
+                totalWritten++;
+                select.classList.add('written');
+                selectedWrittenSubjects.push(select.id);
+            }
+            if (select.id !== 'SP') { // Sport zählt zur Stundenzahl, ist aber Sonderfall in Berechnung manchmal
+                 totalHours += hours;
+            } else {
+                totalHours += hours;
+            }
+
+            // Kategorien zählen
+            const type = select.getAttribute('data-type');
+            const field = select.getAttribute('data-field');
+
+            if (select.id === 'E5' || select.id === 'FS2' || select.id === 'FS3') countFS++;
+            if (select.id === 'KU' || select.id === 'MU') countKUMU++;
+            if (field === '2') countGW++;
+            if (type === 'NW') countNW++; // BI, PH, CH, IF
+            if (select.id === 'REL') hasRelOrPL = true;
+        });
+
+        // --- REGEL PRÜFUNG (Validierung) ---
+
+        // 1. Pflichtfächer
+        if (!document.getElementById('D').value) errors.push("Deutsch ist Pflicht.");
+        if (!document.getElementById('E5').value) errors.push("Eine fortgeführte Fremdsprache (z.B. E5) ist Pflicht.");
+        if (!document.getElementById('M').value) errors.push("Mathematik ist Pflicht.");
+        if (!document.getElementById('SP').value) errors.push("Sport ist Pflicht.");
+        if (countKUMU === 0) errors.push("Kunst oder Musik muss gewählt werden.");
+        if (countGW === 0) errors.push("Mindestens eine Gesellschaftswissenschaft ist Pflicht.");
+        if (!hasRelOrPL) errors.push("Religion oder Philosophie (Ersatzfach) ist Pflicht.");
+        
+        // 2. Schwerpunkt (Sprachlich vs Naturwissenschaftlich)
+        // Man braucht entweder 2 FS oder 2 NW
+        const isLingProfile = (countFS >= 2);
+        const isSciProfile = (countNW >= 2);
+
+        if (!isLingProfile && !isSciProfile) {
+            errors.push("Schwerpunkt fehlt: Wähle entweder 2 Fremdsprachen ODER 2 Naturwissenschaften.");
+        }
+
+        // 3. Naturwissenschaftspflicht
+        if (countNW === 0) {
+            errors.push("Mindestens eine klassische Naturwissenschaft (BI, PH, CH) ist Pflicht.");
+        }
+        // Check IF nur als 2. NW
+        const ifSelect = document.getElementById('IF').value;
+        if (ifSelect && countNW < 2) {
+             errors.push("Informatik ist nur als zweite Naturwissenschaft wählbar.");
+        }
+
+        // 4. Schriftlichkeit
+        // Pflicht schriftlich: D, M, Fortgeführte FS.
+        // Dazu muss mind. 1 weiteres Fach schriftlich sein (entweder weitere FS oder GW oder NW).
+        // Das Dokument sagt spezifisch "(ein Fach muss schriftlich belegt werden!)" unter GW und NW.
+        // Interpretation NRW: Ein Wahlpflichtfach muss schriftlich sein.
+        
+        // Checken ob ein GW oder NW schriftlich ist
+        let gwWritten = false;
+        let nwWritten = false;
+        let fs2Written = false;
+
+        selects.forEach(s => {
+            if ((s.value === 'S' || s.value.endsWith('_S'))) {
+                if (s.getAttribute('data-field') === '2') gwWritten = true;
+                if (s.getAttribute('data-type') === 'NW') nwWritten = true;
+                if (s.id === 'FS2') fs2Written = true;
+            }
+        });
+
+        // Wenn man kein schriftliches Fach im Wahlbereich hat
+        if (!gwWritten && !nwWritten && !fs2Written) {
+            warnings.push("Achtung: Du benötigst i.d.R. ein weiteres schriftliches Fach (Schwerpunktfach) neben D, M, E5.");
+        }
+
+        // 5. Min/Max Werte
+        const sumHoursEl = document.getElementById('sumHours');
+        const sumWrittenEl = document.getElementById('sumWritten');
+        
+        sumHoursEl.innerText = totalHours;
+        sumWrittenEl.innerText = totalWritten;
+
+        if (totalHours < 34) errors.push(`Zu wenig Wochenstunden (${totalHours}). Minimum ist 34.`);
+        if (totalHours > 37) warnings.push(`Hohe Stundenzahl (${totalHours}). Maximum ist i.d.R. 37.`); // [cite: 47]
+        
+        if (totalWritten < 5) errors.push(`Zu wenig Klausurfächer (${totalWritten}). Minimum ist 5.`);
+        if (totalWritten > 8) errors.push(`Zu viele Klausurfächer (${totalWritten}). Maximum ist 8.`);
+
+
+        // --- AUSGABE ---
+        const valBox = document.getElementById('validationOutput');
+        valBox.className = 'validation-box';
+        
+        if (errors.length > 0) {
+            valBox.classList.add('error');
+            valBox.innerHTML = "<strong>Fehler:</strong><ul class='error-list'>" + errors.map(e => `<li>${e}</li>`).join('') + "</ul>";
+        } else if (warnings.length > 0) {
+            valBox.classList.add('warning');
+            valBox.style.backgroundColor = "#fcf8e3";
+            valBox.style.color = "#8a6d3b";
+            valBox.innerHTML = "<strong>Gültig, aber Hinweise beachten:</strong><ul class='error-list'>" + warnings.map(w => `<li>${w}</li>`).join('') + "</ul>";
+        } else {
+            valBox.classList.add('ok');
+            valBox.innerHTML = "<strong>Wahl gültig!</strong> Alle Bedingungen scheinen erfüllt.";
+        }
+    }
+
+    // Initial call
+    updateLogic();
+</script>
+
+</body>
+</html>
