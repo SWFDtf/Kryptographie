@@ -1,1 +1,135 @@
+:root {
+    --primary: #003366;
+    --bg: #f4f4f4;
+    --paper: #ffffff;
+    --border: #ccc;
+    --danger: #d9534f;
+    --success: #5cb85c;
+    --warning: #f0ad4e;
+}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    background: var(--paper);
+    margin: 0 auto;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-top: 5px solid var(--primary);
+}
+
+/* Header Bereich */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #000;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.school-info h1 { margin: 0; font-size: 1.5rem; color: #000; }
+.school-info h2 { margin: 5px 0 0; font-size: 1rem; font-weight: normal; font-style: italic; }
+.meta-info { text-align: right; font-size: 0.9rem; }
+
+/* Formular Kopf */
+.student-data {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid var(--border);
+}
+
+.form-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
+.form-group input, .form-group select { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 4px; }
+
+/* Tabelle */
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.95rem; }
+th, td { border: 1px solid var(--border); padding: 8px 12px; vertical-align: middle; }
+th { background-color: #e9ecef; text-align: left; font-weight: bold; }
+
+.col-field { width: 15%; background: #f8f9fa; font-weight: bold; font-size: 0.85rem; }
+.col-subject { width: 45%; }
+.col-code { width: 10%; text-align: center; }
+.col-hours { width: 10%; text-align: center; }
+.col-select { width: 20%; }
+
+select.course-select { width: 100%; padding: 5px; border: 1px solid #aaa; border-radius: 3px; }
+select.course-select.written { background-color: #e8f0fe; border-color: var(--primary); color: var(--primary); font-weight: bold; }
+
+.mandatory { color: var(--danger); font-weight: bold; }
+.note { font-size: 0.8rem; color: #666; display: block; margin-top: 2px; }
+
+/* Footer / Stats */
+.stats-panel { background: #eee; padding: 20px; border-radius: 5px; margin-top: 20px; }
+.stat-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: bold; }
+
+.validation-box { margin-top: 15px; padding: 10px; border: 1px solid transparent; border-radius: 4px; font-size: 0.9rem; }
+.validation-box.error { background-color: #f2dede; border-color: #ebccd1; color: #a94442; }
+.validation-box.ok { background-color: #dff0d8; border-color: #d6e9c6; color: #3c763d; }
+.validation-box.warning { background-color: #fcf8e3; color: #8a6d3b; border-color: #faebcc; }
+ul.error-list { margin: 0; padding-left: 20px; }
+
+.info-footer { margin-top: 30px; font-size: 0.85rem; color: #555; border-top: 1px solid #ccc; padding-top: 10px; }
+
+/* Druck Button Styles */
+.print-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    float: right;
+    margin-top: -10px;
+}
+.print-btn:hover { background-color: #002244; }
+
+/* ZUSAMMENFASSUNG FÜR DRUCK (Versteckt auf Bildschirm) */
+#print-summary-container { display: none; }
+
+/* --- DRUCK MODUS (PDF) --- */
+@media print {
+    body { background: white; padding: 0; -webkit-print-color-adjust: exact; }
+    .container { box-shadow: none; border: none; padding: 0; width: 100%; max-width: 100%; margin: 0; }
+    
+    /* Elemente verstecken */
+    .no-print, .print-btn, .info-footer, .validation-box, #wahlbogen, .note { display: none !important; }
+    
+    /* Input Felder im Header durch Text ersetzen (optional, hier lassen wir sie oft sichtbar oder vereinfachen sie) */
+    input, select { border: none; background: transparent; appearance: none; font-weight: bold; padding: 0; }
+    
+    /* Zusammenfassung anzeigen */
+    #print-summary-container { display: block !important; margin-top: 20px; }
+    
+    h1 { font-size: 18pt; }
+    table { font-size: 11pt; border: 2px solid #000; }
+    th { background-color: #ccc !important; color: #000; border: 1px solid #000; }
+    td { border: 1px solid #000; }
+
+    /* Unterschriftenfeld */
+    .signature-section {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        page-break-inside: avoid;
+    }
+    .sig-box {
+        border-top: 1px solid black;
+        width: 40%;
+        padding-top: 5px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}
