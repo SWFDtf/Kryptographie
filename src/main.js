@@ -78,12 +78,12 @@ function updateLogic() {
     if (ifSelect && countNW < 2) errors.push("Informatik nur als 2. NW wählbar.");
 
     if (!gwWritten && !nwWritten && !fs2Written) warnings.push("Schwerpunktfach: I.d.R. muss ein weiteres Fach schriftlich sein (FS, GW oder NW).");
-
-    document.getElementById('sumHours').innerText = totalHours;
-    document.getElementById('sumWritten').innerText = totalWritten;
     // Bei Zuvielen Stunden oder aber auch schriftliche Fächer
     if (totalHours > 37) error.push("Zu viele Stunden.");
     if (totalWritten > 8) error.push("Zu viele schriftliche Fächer.");
+    document.getElementById('sumHours').innerText = totalHours;
+    document.getElementById('sumWritten').innerText = totalWritten;
+
     
     const valBox = document.getElementById('validationOutput');
     valBox.className = 'validation-box';
