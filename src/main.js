@@ -67,6 +67,7 @@ function updateLogic() {
     if (countKUMU === 0) errors.push("Kunst oder Musik Pflicht.");
     if (countGW === 0) errors.push("Mind. eine Gesellschaftswissenschaft Pflicht.");
     if (!hasRelOrPL) errors.push("Religion oder Philosophie Pflicht.");
+   
     
     const isLingProfile = (countFS >= 2);
     const isSciProfile = (countNW >= 2);
@@ -80,7 +81,10 @@ function updateLogic() {
 
     document.getElementById('sumHours').innerText = totalHours;
     document.getElementById('sumWritten').innerText = totalWritten;
-
+    // Bei Zuvielen Stunden oder aber auch schriftliche Fächer
+    if (totalHours > 37) error.push("Zu viele Stunden.");
+    if (totalWritten > 8) error.push("Zu viele schriftliche Fächer.");
+    
     const valBox = document.getElementById('validationOutput');
     valBox.className = 'validation-box';
     
