@@ -70,6 +70,10 @@ function updateLogic() {
     // Bei Zuvielen Stunden oder aber auch schriftliche Fächer
     if (totalHours > 37) errors.push("Zu viele Stunden.");
     if (totalWritten > 8) errors.push("Zu viele schriftliche Fächer.");   
+    if (totalHours < 34) errors.push("Zu wenige Stunden.");
+    if (totalWritten < 5) errors.push("Zu wenige schriftliche Fächer.");   
+    
+    
     
     const isLingProfile = (countFS >= 2);
     const isSciProfile = (countNW >= 2);
