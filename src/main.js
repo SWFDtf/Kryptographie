@@ -68,8 +68,8 @@ function updateLogic() {
     if (countGW === 0) errors.push("Mind. eine Gesellschaftswissenschaft Pflicht.");
     if (!hasRelOrPL) errors.push("Religion oder Philosophie Pflicht.");
     // Bei Zuvielen Stunden oder aber auch schriftliche Fächer
-    if (totalHours > 37) error.push("Zu viele Stunden.");
-    if (totalWritten > 8) error.push("Zu viele schriftliche Fächer.");   
+    if (totalHours > 37) errors.push("Zu viele Stunden.");
+    if (totalWritten > 8) errors.push("Zu viele schriftliche Fächer.");   
     
     const isLingProfile = (countFS >= 2);
     const isSciProfile = (countNW >= 2);
